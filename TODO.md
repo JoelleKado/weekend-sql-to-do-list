@@ -14,6 +14,8 @@ When the Task is created, it should be stored inside of a database (SQL)
       [] create a clicker function that....
           [X] collect inputs
           [] Does a POST
+              []client :
+                  [] put ajax post inside of the submitTask function
   [] create a completedObject and sent it in a post request to the db
 Whenever a Task is created the front end should refresh to show all tasks that need to be completed.
   [] do a refreshFunction
