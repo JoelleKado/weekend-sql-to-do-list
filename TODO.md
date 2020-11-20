@@ -1,6 +1,8 @@
 Create a front end experience that allows a user to create a Task.
-  [] create inputs: 'task', 'due date', 'surmised duration(minutes'})'
+  [X] create inputs: 'task', 'due date', 'surmised duration(minutes'})'
 When the Task is created, it should be stored inside of a database (SQL)
+  [] POST
+      [] collect inputs
   [] create a completedObject and sent it in a post request to the db
 Whenever a Task is created the front end should refresh to show all tasks that need to be completed.
   [] do a refreshFunction
