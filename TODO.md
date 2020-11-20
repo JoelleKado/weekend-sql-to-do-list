@@ -3,7 +3,8 @@ Create a front end experience that allows a user to create a Task.
 When the Task is created, it should be stored inside of a database (SQL)
   [] POST
       [] create a clicker function that....
-          [] collect inputs
+          [X] collect inputs
+          [] Does a POST
   [] create a completedObject and sent it in a post request to the db
 Whenever a Task is created the front end should refresh to show all tasks that need to be completed.
   [] do a refreshFunction
