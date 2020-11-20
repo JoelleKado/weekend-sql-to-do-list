@@ -21,6 +21,27 @@ function submitTask() {//ENTER submitTask
     keyThree : time
   }
   console.log('Here is your taskobject', taskObject);
+  
+  $.ajax({
+        method: 'POST',
+        url: '/task',
+        data: taskObject
+  }).then(function (response) {
+        //then is run if we get a good response from server
+        console.log('server says', response);
+        //get all cats again, so we see the update 
+      //  getCats();
+        //clear input
+        //$('#in-name').val('');
+    }).catch(function (error) {
+        //catch is run if there is a bad response from server
+        //log th error and alert the user
+        console.log('Error', error);
+        alert('Something went wrong.')
+    })
+    
+    
+    
 };//EXIT submitTask
 
 function markRead() {
