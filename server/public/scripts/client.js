@@ -1,11 +1,27 @@
 $(document).ready(function(){
-  console.log('jQuery sourced.');
-  refreshBooks();
-  addClickHandlers();
+  console.log('jQ is READY');
+//  refreshBooks();
+  //addClickHandlers();
   $('#bookShelf').on('click', '.deleteButton', deleteBook);
   $('#bookShelf').on('click', '.markReadButton', markRead);
+  $('#submitButton').on('click', submitTask);
 
 });
+
+function submitTask() {//ENTER submitTask
+  console.log('ENTER submitTask');
+  //get our inputs
+  let task = $('#taskInput').val();
+  let date = $('#dateInput').val();
+  let time = $('#durationInput').val();
+  
+  let taskObject = {
+    keyOne : task,
+    keyTwo : date,
+    keyThree : time
+  }
+  console.log('Here is your taskobject', taskObject);
+};//EXIT submitTask
 
 function markRead() {
   console.log('enter markRead');
