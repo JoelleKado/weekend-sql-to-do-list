@@ -2,6 +2,9 @@ Create a front end experience that allows a user to create a Task.
   [X] create inputs: 'task', 'due date', 'surmised duration(minutes'})'
 When the Task is created, it should be stored inside of a database (SQL)
   [] get server running
+      [X]create task.router.js
+      [] create .gitignore
+      [] 
   [] POST
       [] create a clicker function that....
           [X] collect inputs
