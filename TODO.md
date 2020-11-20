@@ -3,8 +3,8 @@ Create a front end experience that allows a user to create a Task.
 When the Task is created, it should be stored inside of a database (SQL)
   [] get server running
       [X]create task.router.js
-      [] create .gitignore
-      [] 
+      [X] create .gitignore
+      [] npm init -y
   [] POST
       [] create a clicker function that....
           [X] collect inputs
