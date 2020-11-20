@@ -18,6 +18,8 @@ When the Task is created, it should be stored inside of a database (SQL)
                   [x] put ajax post inside of the submitTask function
                         [x] add.then
                         [x] add.catch
+              []server :
+                  [] make ajax post 
   [] create a completedObject and sent it in a post request to the db
 Whenever a Task is created the front end should refresh to show all tasks that need to be completed.
   [] do a refreshFunction
