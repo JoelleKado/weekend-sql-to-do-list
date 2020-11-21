@@ -22,10 +22,13 @@ When the Task is created, it should be stored inside of a database (SQL)
                   [X] make ajax post on task.router.js
                   [x] make .then
                   [x] make .catch
-                  [] pool.js configured
-                  [] server can query the db
-  [] create a completedObject and sent it in a post request to the db
-Whenever a Task is created the front end should refresh to show all tasks that need to be completed.
+                  [x] pool.js configured
+                  [x] server can query the db
+  [x] create a completedObject and sent it in a post request to the db
+[]Whenever a Task is created the front end should refresh to show all tasks that 
+      [] GET 
+          [] GET method on client
+need to be completed.
   [] do a refreshFunction
 Each Task should have an option to 'Complete' or 'Delete'.
   []
