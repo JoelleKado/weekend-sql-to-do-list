@@ -23,11 +23,11 @@ router.post('/',  (req, res) => {
   let newTask = req.body;
   console.log('adding task', newTask)
 
-  //let queryText = `INSERT INTO "books" ("author", "title")
-              //     VALUES ($1, $2);`;
-  //pool.query(queryText, [newBook.author, newBook.title])
+  let queryText = `INSERT INTO tasks (task, date, duration)
+VALUES ($1, $2, $3);`;
+  pool.query(queryText, [newTask.keyOne, newTask.keyTwo, newTask.keyThree])
     // .then(result => {
-    res.sendStatus(201);
+    res.sendStatus(200);
     //  })
     // .catch(error => {
     //   console.log(`Error adding new book`, error);
