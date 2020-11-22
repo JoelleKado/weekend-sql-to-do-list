@@ -18,6 +18,10 @@ main {
   margin: auto;
 }
 
+#form {
+  background-color: lightblue;
+}
+
 section {
   background-color: linen;
   padding: .5em;
