@@ -45,14 +45,14 @@ VALUES ($1, $2, $3);`;
 // Request body must include the content to update - the status
 router.put('/:id',  (req, res) => {
   console.log('in PUT');
-  let book = req.body; // Book with updated content
+  let task = req.body.complete; // Book with updated content
   let id = req.params.id; // id of the book to update
-console.log(book, id);
+console.log(task, id);
   //console.log(`Updating book ${id} with `, book);
-let queryText = ''
-if (req.body.read === 'yes') {
-  queryText = `UPDATE "books" 
-              SET "status" = 'read' 
+let queryText = '';
+if (task === 'true') {
+  queryText = `UPDATE "tasks" 
+              SET "complete" = 'true' 
               WHERE "id" = $1;`;
 }
   // TODO - REPLACE BELOW WITH YOUR CODE

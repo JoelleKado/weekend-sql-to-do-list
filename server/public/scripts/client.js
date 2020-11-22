@@ -3,10 +3,36 @@ $(document).ready(function(){
   taskRefresh();
   //addClickHandlers();
   $('#taskList').on('click', '.deleteButton', removeTask);
+  $('#taskList').on('click', '.checkButton', checkFunction);
+  //$('#taskList').on('click', '.checkButton', colorChange);
+
   $('#bookShelf').on('click', '.markReadButton', markRead);
   $('#submitButton').on('click', submitTask);
 
 });
+
+function checkFunction() {
+  console.log('enter checkFunction');
+  let idToUpdate = $(this).closest('tr').data('id');
+console.log('idToUpdate', idToUpdate);
+  let checkObject = {
+    complete : 'true'
+  }
+  console.log(checkObject);
+  $.ajax({
+    method: 'PUT', //update
+    url: `/task/${idToUpdate}`,//req.params
+    data: checkObject //req.body
+  }).then(function(response){
+    console.log(response);
+    taskRefresh();
+  }).catch(function(){
+    console.log('something went wrong.');
+  })
+  
+  
+}
+
 function removeTask() {
   console.log('Removing task');
   console.log($(this));
@@ -48,16 +74,28 @@ function taskRender(taskArray) {//ENTER taskRender
    for(let task of taskArray) {
      
    // For each task, append a new row to our table
-let $tr = $(`<tr data-id="${task.id}"></tr>`);
-     $tr.data('task', task);
+let $tr = $(`<tr id="${task.id}" data-id="${task.id}"></tr>`);
+
+ $tr.data('task', task);
      $tr.append(`<td>${task.task}</td>`);
    $tr.append(`<td>${task.date}</td>`);
     $tr.append(`<td class="center">${task.duration}</td>`);
-    $tr.append(`<td class="yellow"><input type="checkbox" id="check">(False)</td>`);
-     $tr.append(`<td><button class="deleteButton">Delete</button></td>`);     
+    $tr.append(`<td><button class="checkButton">check</button></td>`);     
 
-    $('#taskList').append($tr);
+    //$tr.append(`<td class="yellow"><input type="checkbox" id="check">(False)</td>`);
+     $tr.append(`<td><button class="deleteButton">Delete</button></td>`);     
+$('#taskList').append($tr);
+
+
+//if complete stats === true change row color to green
+console.log(task.complete);
+console.log(`${task.id}`);
+if(task.complete === 'true'){
+    $(`#${task.id}`).addClass('green');
   }
+//END change row color to green if complete === true
+    
+}
 // 
   
   
