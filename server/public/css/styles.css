@@ -24,6 +24,14 @@ section {
   margin-bottom: 1em;
 }
 
+.yellow {
+  background-color: yellow;
+}
+
+.green {
+  background-color: green;
+}
+
 /* th {
   text-align: left;
 } */

@@ -35,7 +35,7 @@ let $tr = $(`<tr data-id="${task.id}"></tr>`);
      $tr.append(`<td>${task.task}</td>`);
    $tr.append(`<td>${task.date}</td>`);
     $tr.append(`<td class="center">${task.duration}</td>`);
-    $tr.append(`<td>(Check = True) <input type="checkbox" id="check"></td>`);
+    $tr.append(`<td class="yellow"><input type="checkbox" id="check">(False)</td>`);
      $tr.append(`<td><button class="deleteButton">Delete</button></td>`);     
 
     $('#taskList').append($tr);
