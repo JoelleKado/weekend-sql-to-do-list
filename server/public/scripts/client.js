@@ -27,8 +27,8 @@ function taskRender(taskArray) {//ENTER taskRender
   //clear old task list from dom to prevent multilogging
   $('#taskList').empty();
   
-   for(let i = 0; i < taskArray.length; i ++) {
-     let task = taskArray[i];
+   for(let task of taskArray) {
+     
    // For each task, append a new row to our table
 let $tr = $(`<tr data-id="${task.id}"></tr>`);
      $tr.data('task', task);
