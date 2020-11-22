@@ -28,6 +28,9 @@ When the Task is created, it should be stored inside of a database (SQL)
 []Whenever a Task is created the front end should refresh to show all tasks that 
       [] GET 
           [] GET method on client
+              [] taskrefresh function
+              [x] post function triggers taskRefresh
+          [] GET method on SERVER
 need to be completed.
   [] do a refreshFunction
 Each Task should have an option to 'Complete' or 'Delete'.
