@@ -15,11 +15,35 @@ function taskRefresh() {
     url: '/task'
   }).then(function(response) {
     console.log('SERVER responded with', response);
-    //renderBooks(response);
+    taskRender(response);
   }).catch(function(error){
     console.log('error in GET', error);
   });
 }
+//render updated tasks to the dom
+function taskRender(taskArray) {//ENTER taskRender
+  console.log('Rendering Tasks');
+  console.log('Here is our taskArray:', taskArray);
+  //clear old task list from dom to prevent multilogging
+  $('#taskList').empty();
+  
+   for(let i = 0; i < taskArray.length; i ++) {
+     let task = taskArray[i];
+   // For each task, append a new row to our table
+let $tr = $(`<tr data-id="${task.id}"></tr>`);
+     $tr.data('task', task);
+     $tr.append(`<td>${task.task}</td>`);
+   $tr.append(`<td>${task.date}</td>`);
+    $tr.append(`<td class="center">${task.duration}</td>`);
+    $tr.append(`<td>(Check = True) <input type="checkbox" id="check"></td>`);
+     $tr.append(`<td><button class="deleteButton">Delete</button></td>`);     
+
+    $('#taskList').append($tr);
+  }
+// 
+  
+  
+};//EXIT taskRender
 
 function submitTask() {//ENTER submitTask
   console.log('ENTER submitTask');

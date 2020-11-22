@@ -28,12 +28,20 @@ When the Task is created, it should be stored inside of a database (SQL)
 []Whenever a Task is created the front end should refresh to show all tasks that 
       [] GET 
           [] GET method on client
-              [] taskrefresh function
+              [] taskRefresh function
+                  
               [x] post function triggers taskRefresh
+              [x]triggers taskRender function
           [] GET method on SERVER
+  
+              [x]table object sent to client
+              []renderTask function
+                [x] appends tableobject to dom
 need to be completed.
   [] do a refreshFunction
 Each Task should have an option to 'Complete' or 'Delete'.
+    [] append delete buttons to each task row on DOM
+    [] append checkbox to each task row on dom
   []
   TASK COMPLETED...
 When a Task is complete, its visual representation should change on the front end. For example, the background of the task container could change from gray to green. The complete option should be  'checked off'. Each of these are accomplished in CSS, but will need to hook into logic to know whether or not the task is complete.
