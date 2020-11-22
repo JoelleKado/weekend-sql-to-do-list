@@ -76,7 +76,7 @@ router.delete('/:id',  (req, res) => {
 console.log('id to delete', id);
 res.send('ok');
 //  console.log('in delete');
-let queryText = `DELETE FROM books WHERE id=$1;`//what is the 1 here
+let queryText = `DELETE FROM tasks WHERE id=$1;`//what is the 1 here
   //console.log('Delete route called with id of', id);
   // TODO - REPLACE BELOW WITH YOUR CODE
   //res.sendStatus(500);
@@ -85,7 +85,7 @@ let queryText = `DELETE FROM books WHERE id=$1;`//what is the 1 here
       //res.sendStatus(200);
     //})
     .catch(error => {
-      console.log(`Error adding new book`, error);
+      console.log(`Error deleting new task`, error);
       res.sendStatus(500);
     });
 

@@ -2,11 +2,29 @@ $(document).ready(function(){
   console.log('jQ is READY');
   taskRefresh();
   //addClickHandlers();
-  $('#bookShelf').on('click', '.deleteButton', deleteBook);
+  $('#taskList').on('click', '.deleteButton', removeTask);
   $('#bookShelf').on('click', '.markReadButton', markRead);
   $('#submitButton').on('click', submitTask);
 
 });
+function removeTask() {
+  console.log('Removing task');
+  console.log($(this));
+  let idToDelete = $(this).closest('tr').data('id');
+  console.log(idToDelete);
+  $.ajax({
+        method: 'DELETE',
+        url: `/task/${idToDelete}` //add id to the url
+    }).then( function(response) {
+      console.log(response);
+        taskRefresh();
+    }).catch( function(error){
+        console.log('Error:', error);
+        alert('Something bad happened. Try again later');
+    })
+
+}
+
 //update task list displayed on dom
 function taskRefresh() {
   console.log('Refreshing Tasks');
