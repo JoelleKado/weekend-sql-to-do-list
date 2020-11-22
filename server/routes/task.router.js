@@ -5,9 +5,11 @@ const pool = require('../modules/pool');
 
 // Get all books
 router.get('/', (req, res) => {
-  let queryText = 'SELECT * FROM "books" ORDER BY "title";';
+  let queryText = `SELECT * FROM "tasks" ORDER BY "date";`;
   pool.query(queryText).then(result => {
-    // Sends back the results in an object
+    //console log our table object
+    console.log(result.rows);
+    // Sends our table object to client
     res.send(result.rows);
   })
   .catch(error => {
@@ -26,13 +28,14 @@ router.post('/',  (req, res) => {
   let queryText = `INSERT INTO tasks (task, date, duration)
 VALUES ($1, $2, $3);`;
   pool.query(queryText, [newTask.keyOne, newTask.keyTwo, newTask.keyThree])
-    // .then(result => {
+     .then(result => {
+       console.log('New task added to DB');
     res.sendStatus(200);
-    //  })
-    // .catch(error => {
-    //   console.log(`Error adding new book`, error);
-    //   res.sendStatus(500);
-    // });
+     })
+    .catch(error => {
+      console.log(`Error adding new book`, error);
+     res.sendStatus(500);
+     });
 });
 
 

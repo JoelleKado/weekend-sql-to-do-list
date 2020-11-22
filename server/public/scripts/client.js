@@ -1,27 +1,40 @@
 $(document).ready(function(){
   console.log('jQ is READY');
-//  refreshBooks();
+  taskRefresh();
   //addClickHandlers();
   $('#bookShelf').on('click', '.deleteButton', deleteBook);
   $('#bookShelf').on('click', '.markReadButton', markRead);
   $('#submitButton').on('click', submitTask);
 
 });
+//update task list displayed on dom
+function taskRefresh() {
+  console.log('Refreshing Tasks');
+  $.ajax({
+    type: 'GET',
+    url: '/task'
+  }).then(function(response) {
+    console.log('SERVER responded with', response);
+    //renderBooks(response);
+  }).catch(function(error){
+    console.log('error in GET', error);
+  });
+}
 
 function submitTask() {//ENTER submitTask
   console.log('ENTER submitTask');
-  //get our inputs
+  //collect inputs
   let task = $('#taskInput').val();
   let date = $('#dateInput').val();
   let time = $('#durationInput').val();
-  
+  //put inputs into an object
   let taskObject = {
     keyOne : task,
     keyTwo : date,
     keyThree : time
   }
   console.log('Here is your taskobject', taskObject);
-  
+  //send object to server
   $.ajax({
         method: 'POST',
         url: '/task',
@@ -29,10 +42,13 @@ function submitTask() {//ENTER submitTask
   }).then(function (response) {
         //then is run if we get a good response from server
         console.log('server says', response);
-        //get all cats again, so we see the update 
-      //  getCats();
-        //clear input
-        //$('#in-name').val('');
+        //refresh our task list to reflect our latest POST
+        taskRefresh();
+        //clear inputs
+        $('#taskInput').val('');
+        $('#dateInput').val('');
+        $('#durationInput').val('');
+  
     }).catch(function (error) {
         //catch is run if there is a bad response from server
         //log th error and alert the user
