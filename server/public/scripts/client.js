@@ -9,6 +9,7 @@ $(document).ready(function(){
 function checkFunction() {
   console.log('enter checkFunction');
   let idToUpdate = $(this).closest('tr').data('id');
+  
   console.log('idToUpdate', idToUpdate);
   let checkObject = {
     complete : 'true'
@@ -50,32 +51,55 @@ function taskRefresh() {
   $.ajax({
     type: 'GET',
     url: '/task'
-  }).then(function(response) {
-    console.log('SERVER responded with', response);
-    taskRender(response);
+  }).then(function(result) {
+    console.log('SERVER responded with', result);
+    
+    $('#taskList').empty();
+    
+    //  for(let task of taskArray) {
+    //    // For each task, append a new row to our table
+    //    let $tr = $(`<tr id="${task.id}" data-id="${task.id}"></tr>`);
+    //    $tr.data('task', task);
+    //    $tr.append(`<td>${task.task}</td>`);
+    //    $tr.append(`<td>${task.date}</td>`);
+    //    $tr.append(`<td class="center">${task.duration}</td>`);
+    //    $tr.append(`<td class="yellow"><button class="checkButton">check</button></td>`);     
+    //    //$tr.append(`<td class="yellow"><input type="checkbox" id="check">(False)</td>`);
+    //    //$tr.append(`<td><button class="deleteButton">Delete</button></td>`);     
+    //    $('#taskList').append($tr);
+    // }
+    
+    for(let i=0; i<result.length; i++) {
+        $('#taskList').append(
+          `<tr data-id=${result[i].id}>
+          <td>${result[i].task}</td>
+          <td>${result[i].date}</td>
+          <td>${result[i].duration}</td>
+          <td class="yellow"><button class="checkButton">check</button></td>
+          <td><button class="deleteButton">Delete</button></td>`)   
+}
+    
+    
+    
+    
+    //taskRender(result);
   }).catch(function(error){
     console.log('error in GET', error);
   });
 }
 //render updated tasks to the dom
+//--we are going to call our 'response' 'taskArray' 
 function taskRender(taskArray) {//ENTER taskRender
   console.log('Rendering Tasks');
   console.log('Here is our taskArray:', taskArray);
   //clear old task list from dom to prevent multilogging
-  $('#taskList').empty();
   
-   for(let task of taskArray) {
-     // For each task, append a new row to our table
-     let $tr = $(`<tr id="${task.id}" data-id="${task.id}"></tr>`);
-     $tr.data('task', task);
-     $tr.append(`<td>${task.task}</td>`);
-     $tr.append(`<td>${task.date}</td>`);
-     $tr.append(`<td class="center">${task.duration}</td>`);
-     $tr.append(`<td class="yellow"><button class="checkButton">check</button></td>`);     
-     //$tr.append(`<td class="yellow"><input type="checkbox" id="check">(False)</td>`);
-     $tr.append(`<td><button class="deleteButton">Delete</button></td>`);     
-     $('#taskList').append($tr);
-  }
+  
+  
+  
+  
+  
+  
 };//EXIT taskRender
 
 function submitTask() {//ENTER submitTask
