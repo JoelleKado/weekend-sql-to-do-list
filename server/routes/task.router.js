@@ -8,7 +8,7 @@ router.get('/', (req, res) => {
   let queryText = `SELECT * FROM "tasks" ORDER BY "date";`;
   pool.query(queryText).then(result => {
     //console log our table object
-    console.log(result.rows);
+    console.log('line11:', result.rows);
     // Sends our table object to client
     res.send(result.rows);
   })
