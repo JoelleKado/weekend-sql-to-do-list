@@ -38,7 +38,7 @@ When the Task is created, it should be stored inside of a database (SQL)
               [X]renderTask function
                 [x] appends tableobject to dom
 need to be completed.
-  [] do a refreshFunction
+  [X] do a refreshFunction
 Each Task should have an option to 'Complete' or 'Delete'.
     [x] append delete buttons to each task row on DOM
     [x] append checkbox to each task row on dom
@@ -46,12 +46,12 @@ Each Task should have an option to 'Complete' or 'Delete'.
   TASK COMPLETED...
 When a Task is complete, its visual representation should change on the front end. For example, the background of the task container could change from gray to green. The complete option should be  'checked off'. Each of these are accomplished in CSS, but will need to hook into logic to know whether or not the task is complete.
   []  
-      [] make cell bacground of checkbox cell yellow for false (default)
+      [X] make cell bacground of checkbox cell yellow for false (default)
       [] if checked, turn cell background green
 Whether or not a Task is complete should also be stored in the database.
-  []
+  [X]
 Deleting a Task should remove it both from the front end as well as the Database.
-  []
+  [X]
 []create a db `weekend-to-do-app`
 
 []Please include a `database.sql` text file in your repo that includes all of your `CREATE TABLE` queries. This is so we can re-create your database while testing your app.

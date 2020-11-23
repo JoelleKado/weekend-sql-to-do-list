@@ -6,13 +6,11 @@
 
 ## Description
 
-_Duration: 12hrs_
+_Duration: 15hrs_
 
 My program is a to-do list. Normally, a to-do list must be maintained by a person through personal responsibility: a notebook for example, which must be saved in a drawer or in your pocket. This inherent philosophy of the traditional to-do list lends itself to loss of the to-do list itself. My to-do list lives in a database, its permanent home, and is showcased on the client, an ordinary web-browser, through the server.
 
-## Screen Shot
-
-Include one or two screen shots of your project here (optional). Remove if unused.
+![intro](images/to-doList.png)
 
 ### Prerequisites
 

@@ -6,20 +6,15 @@ $(document).ready(function(){
   $('#submitButton').on('click', submitTask);
 });
 
-function colorGreen() {
-  let idToUpdate = $(this).closest('tr').data('id');
-console.log(idToUpdate);
-}
-
 function checkFunction() {
   console.log('enter checkFunction');
   let idToUpdate = $(this).closest('tr').data('id');
   console.log('idToUpdate', idToUpdate);
-  colorGreen();
   let checkObject = {
     complete : 'true'
   }
   console.log(checkObject);
+  
   $.ajax({
     method: 'PUT', //update
     url: `/task/${idToUpdate}`,//req.params
@@ -27,7 +22,6 @@ function checkFunction() {
   }).then(function(response){
     console.log(response);
     taskRefresh();
-    //colorGreen();
   }).catch(function(){
     console.log('something went wrong.');
   })
@@ -81,14 +75,6 @@ function taskRender(taskArray) {//ENTER taskRender
      //$tr.append(`<td class="yellow"><input type="checkbox" id="check">(False)</td>`);
      $tr.append(`<td><button class="deleteButton">Delete</button></td>`);     
      $('#taskList').append($tr);
-
-     //if complete stats === true change row color to green
-     console.log(task.complete);
-     console.log(`${task.id}`);
-     if (task.complete === 'true'){
-       $(`#${task.id}`).addClass('green');
-     }
-//END change row color to green if complete === true
   }
 };//EXIT taskRender
 
