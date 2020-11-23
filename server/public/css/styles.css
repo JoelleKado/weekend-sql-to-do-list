@@ -32,14 +32,6 @@ section {
   background-color: yellow;
 }
 
-.green {
-  background-color: green;
-}
-
-/* th {
-  text-align: left;
-} */
-
 table, th, td {
   border: 1px solid black;
   padding: 15px;
@@ -48,5 +40,3 @@ table, th, td {
 .center {
   text-align: center;
 }
-
-
