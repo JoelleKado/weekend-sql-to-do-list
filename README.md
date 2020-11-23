@@ -44,7 +44,7 @@ How does someone use this application? Tell a user story here.
 
 6. Press 'CHECK' to mark a task "complete".
 
-7. Press 'DELETE' to remove a task from the Database
+7. Press 'DELETE' to remove a task from the Database.
 
 ## Acknowledgement
 Thanks to [Prime Digital Academy](www.primeacademy.io) who equipped and helped me to make this application a reality. 
