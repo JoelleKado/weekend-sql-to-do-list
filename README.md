@@ -42,7 +42,7 @@ How does someone use this application? Tell a user story here.
 
 5. A record of all tasks are showcased on screen.
 
-6. Press 'CHECK' to mark a task "complete".
+6. Press 'CHECK' to mark a task, green, for "complete".
 
 7. Press 'DELETE' to remove a task from the Database.
 

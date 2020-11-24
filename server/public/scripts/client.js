@@ -1,15 +1,14 @@
 $(document).ready(function(){
   console.log('jQ is READY');
   taskRefresh();
-  $('#taskList').on('click', '.deleteButton', removeTask);
-  $('#taskList').on('click', '.checkButton', checkFunction);
   $('#submitButton').on('click', submitTask);
+  $('#taskList').on('click', '.checkButton', checkFunction);
+  $('#taskList').on('click', '.deleteButton', removeTask);
 });
 
 function checkFunction() {
   console.log('enter checkFunction');
   let idToUpdate = $(this).closest('tr').data('id');
-  
   console.log('idToUpdate', idToUpdate);
   let checkObject = {
     complete : 'true'
@@ -33,6 +32,7 @@ function removeTask() {
   console.log($(this));
   let idToDelete = $(this).closest('tr').data('id');
   console.log(idToDelete);
+
   $.ajax({
         method: 'DELETE',
         url: `/task/${idToDelete}` //add id to the url
@@ -48,22 +48,32 @@ function removeTask() {
 //update task list displayed on dom
 function taskRefresh() {
   console.log('Refreshing Tasks');
+  
   $.ajax({
     type: 'GET',
     url: '/task'
   }).then(function(result) {
     console.log('SERVER responded with', result);
-    
     $('#taskList').empty();
         
-    for(let i=0; i<result.length; i++) {
+  for(let i=0; i<result.length; i++) {
+      if(result[i].complete === false) {
         $('#taskList').append(
           `<tr data-id=${result[i].id}>
           <td>${result[i].task}</td>
           <td>${result[i].date}</td>
           <td>${result[i].duration}</td>
           <td class="yellow"><button class="checkButton">check</button></td>
-          <td><button class="deleteButton">Delete</button></td>`)   
+          <td><button class="deleteButton">Delete</button></td></tr>`)   
+  }else {
+  $('#taskList').append(
+    `<tr data-id=${result[i].id}>
+    <td>${result[i].task}</td>
+    <td>${result[i].date}</td>
+    <td>${result[i].duration}</td>
+    <td class="green"></td>
+    <td><button class="deleteButton">Delete</button></td></tr>`)  
+}
 }
     //taskRender(result);
   }).catch(function(error){
@@ -105,8 +115,7 @@ function submitTask() {//ENTER submitTask
         $('#taskInput').val('');
         $('#dateInput').val('');
         $('#durationInput').val('');
-  
-    }).catch(function (error) {
+  }).catch(function (error) {
         //catch is run if there is a bad response from server
         //log th error and alert the user
         console.log('Error', error);
