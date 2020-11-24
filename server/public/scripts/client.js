@@ -62,7 +62,7 @@ function taskRefresh() {
           `<tr data-id=${result[i].id}>
           <td>${result[i].task}</td>
           <td>${result[i].date}</td>
-          <td>${result[i].duration}</td>
+          <td class="center">${result[i].duration}</td>
           <td class="yellow"><button class="checkButton">check</button></td>
           <td><button class="deleteButton">Delete</button></td></tr>`)   
   }else {
@@ -70,7 +70,7 @@ function taskRefresh() {
     `<tr data-id=${result[i].id}>
     <td>${result[i].task}</td>
     <td>${result[i].date}</td>
-    <td>${result[i].duration}</td>
+    <td class="center">${result[i].duration}</td>
     <td class="green"></td>
     <td><button class="deleteButton">Delete</button></td></tr>`)  
 }
