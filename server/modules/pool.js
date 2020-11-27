@@ -1,21 +1,50 @@
 const pg = require('pg');
 
-const config = {
+const Pool = pg.Pool
+
+let config = {}
+
+if(process.env.DATABASE_URL) {
+  config = {
+    connectionString: process.env.DATABASE_URL,
+    ssl: {rejectUnauthorized: false}
+  }
+}else{
+  
+config = {
   database: 'weekend-to-do-app', 
   host: 'localhost', 
   port: 5432, 
   max: 10, 
   idleTimeoutMillis: 30000 
 };
+}
 
-const pool = new pg.Pool(config);
+const pool = new Pool(config);
+
+
+
+//get the Pool object from pg
+
+//make our own instance of a Pool from that template Pool object
+  //this says how to connect to the Db 
+
+
+  
+
+
+
+// create the pool with the proper config
+
+
+
 
 pool.on("connect", () => {
   console.log("connected to postgres");
 });
 
 pool.on("error", (err) => {
-  console.log("error connecting to postgres", err);
+    console.log("error connecting to postgres", err);
 });
 
 module.exports = pool;

@@ -30,7 +30,6 @@ My program is a to-do list. Normally, a to-do list must be maintained by a perso
 -run the querries within the file in your SQL client to establish a database and fill it with data.
 
 ## Usage
-How does someone use this application? Tell a user story here.
 
 1. Start the server:
 -(In terminal) `npm start`
