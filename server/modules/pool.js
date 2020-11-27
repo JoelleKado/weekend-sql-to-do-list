@@ -1,28 +1,16 @@
 const pg = require('pg');
 
-
-const url = require('url');
-let config = {};
-
-
-
-//get the Pool object from pg
 const Pool = pg.Pool
 
-//make our own instance of a Pool from that template Pool object
-  //this says how to connect to the Db 
+let config = {}
 
-if (process.env.DATABASE_URL) {
-  //running remote (heroku)
+if(process.env.DATABASE_URL) {
   config = {
     connectionString: process.env.DATABASE_URL,
     ssl: {rejectUnauthorized: false}
   }
-
-} else {
-  //running locally
+}else{
   
-
 config = {
   database: 'weekend-to-do-app', 
   host: 'localhost', 
@@ -32,8 +20,24 @@ config = {
 };
 }
 
+const pool = new Pool(config);
+
+
+
+//get the Pool object from pg
+
+//make our own instance of a Pool from that template Pool object
+  //this says how to connect to the Db 
+
+
+  
+
+
+
 // create the pool with the proper config
-const pool = new pg.Pool(config);
+
+
+
 
 pool.on("connect", () => {
   console.log("connected to postgres");
