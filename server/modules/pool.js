@@ -22,23 +22,6 @@ config = {
 
 const pool = new Pool(config);
 
-
-
-//get the Pool object from pg
-
-//make our own instance of a Pool from that template Pool object
-  //this says how to connect to the Db 
-
-
-  
-
-
-
-// create the pool with the proper config
-
-
-
-
 pool.on("connect", () => {
   console.log("connected to postgres");
 });
